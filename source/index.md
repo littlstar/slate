@@ -8,6 +8,8 @@ toc_footers:
   - <a href='https://littlstar.com/register'>Join Littlstar to generate your API Key</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
+# Each RESTful API endpoint is documented in its own includes template. The site layout will iterate over
+# each of those files and output them in the order defined here.
 includes:
   - errors
 
@@ -43,6 +45,10 @@ Kittn expects for the API key to be included in all API requests to the server i
 <aside class="notice">
 You must replace `meowmeowmeow` with your personal API key.
 </aside>
+
+{% comment %}
+  All individual RESTful endpoint documentation output below this point are defined in the includes/* directory.
+{% endcomment %}
 
 # Kittens
 
