@@ -1,8 +1,13 @@
 ---
 title: API Documentation | Littldev
 
+# Language tabs appear at the top of the right hand column.
+# Selecting a language tab interactively switches code examples to that language
 language_tabs:
-  - shell
+  - shell: cURL
+  #- ruby: Ruby
+  #- python: Python
+  #- PHP
 
 toc_footers:
   - <a href='https://littlstar.com/register'>Join Littlstar to generate your API Key</a>
