@@ -31,3 +31,7 @@ rake publish
 ```
 
 This command will build the site and push it to the gh-pages branch on Github.
+
+## Further Reading
+
+The original [Slate wiki](https://github.com/tripit/slate/wiki) has excellent documentation explaining more advanced usage and configuration.
