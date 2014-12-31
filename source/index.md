@@ -17,7 +17,7 @@ toc_footers:
 # Each RESTful API endpoint is documented in its own includes template. The site layout will iterate over
 # each of those files and output them in the order defined here.
 includes:
-  #- videos
+  - login
   #- example
   #- errors
 
