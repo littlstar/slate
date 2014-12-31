@@ -6,10 +6,20 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <title><%= current_page.data.title || "API Documentation" %></title>
+
+    <meta name="author" content="Littlstar Dev Team">
+    <meta name="description" content="Official Littlstar API Documentation">
+
+    <link href="/favicon-32.png" rel="icon">
+    <!--[if IE ]>
+      <link href="/favicon.ico" rel="icon">
+    <![endif]-->
 
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <% if current_page.data.search %>
       <%= javascript_include_tag  "all" %>
