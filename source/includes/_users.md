@@ -39,42 +39,6 @@ curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/users/1
 }
 ```
 
-> authenticated JSON response
-
-<!-- example response-->
-```json
-{
-  "meta": {
-    "code": 200,
-    "errors": null,
-    "message": null,
-    "data_count": null
-  },
-  "pagination": null,
-  "data": {
-    "email": "jsmith@example.com",
-    "gender": "male",
-    "age": 35,
-    "apikey": "a1b2c3d4e5f6g7h8i9j",
-    "id": 1,
-    "slug": "jsmith",
-    "username": "jsmith",
-    "first_name": "John",
-    "last_name": "Smith",
-    "bio": "",
-    "avatar_url": "",
-    "cred": 5,
-    "created_at": "1979-04-13T04:20:00.778-04:00",
-    "updated_at": "1979-04-13T04:20:00.778-04:00",
-    "videos_count": 0,
-    "full_name": "John Smith",
-    "followers_count": 0,
-    "following_count": 0,
-    "following": "true|false"
-  }
-}
-```
-
 This endpoint will return the publicly available details for the requested user.
 
 ### HTTP Request
@@ -82,7 +46,7 @@ This endpoint will return the publicly available details for the requested user.
 `GET https://littlstar.com/api/v1/users/:id`
 
 <aside class="notice">
-If the X-Apikey authentication header is provided and the apikey matches the requested user's apikey then their full private profile will be returned.
+If the X-Apikey authentication header is provided and the apikey matches the requested user's apikey then their full private profile will be returned. This authenticated response will look exactly like the successful [login response](#login) shown above.
 </aside>
 
 <aside class="notice">
