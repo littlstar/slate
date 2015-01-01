@@ -7,8 +7,6 @@
 curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/users/1
 ```
 
-> unauthenticated JSON response
-
 <!-- example response-->
 ```json
 {
@@ -39,7 +37,7 @@ curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/users/1
 }
 ```
 
-This endpoint will return the publicly available details for the requested user.
+Returns the publicly available details for the requested user.
 
 ### HTTP Request
 
@@ -70,10 +68,8 @@ Code | Message
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/users/1/videos
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/users/1/videos
 ```
-
-> successful JSON response
 
 <!-- example response-->
 ```json
@@ -139,11 +135,15 @@ curl -i https://littlstar.com/api/v1/users/1/videos
 }
 ```
 
-This endpoint will return all videos created by the requested user.
+Returns a paginated array of all videos created by the requested user.
 
 ### HTTP Request
 
 `GET https://littlstar.com/api/v1/users/:id/videos`
+
+<aside class="notice">
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside>
 
 ### Query Parameters
 
@@ -166,8 +166,6 @@ Code | Message
 ```shell
 curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/users/1/feed
 ```
-
-> successful JSON response
 
 <!-- example response-->
 ```json
@@ -243,6 +241,10 @@ This endpoint returns a paginated array of all videos from a user's public or pr
 The requested user's public feed is returned by default, their private feed can be returned by providing their apikey in the X-Apikey header.
 </aside>
 
+<aside class="notice">
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside>
+
 ### Query Parameters
 
 Parameter | Default | Description
@@ -262,10 +264,8 @@ Code | Message
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/users/1/followers
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/users/1/followers
 ```
-
-> successful JSON response
 
 <!-- example response-->
 ```json
@@ -309,14 +309,14 @@ curl -i https://littlstar.com/api/v1/users/1/followers
 }
 ```
 
-This endpoint returns a paginated array of all users following the requested user.
+Returns a paginated array of all users that currently follow the requested user.
 
 ### HTTP Request
 
 `GET https://littlstar.com/api/v1/users/:id/followers`
 
 <aside class="notice">
-When authenticated with an X-Apikey header an additional property named following will be included in the response indicating whether the currently authenticated user is following the requested user.
+When authenticated with an X-Apikey header an additional property, `following`, will be included in each of the user objects in the array indicating whether the currently authenticated user is following that user.
 </aside>
 
 ### Query Parameters
@@ -338,10 +338,8 @@ Code | Message
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/users/1/following
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/users/1/following
 ```
-
-> successful JSON response
 
 <!-- example response-->
 ```json
@@ -385,7 +383,7 @@ curl -i https://littlstar.com/api/v1/users/1/following
 }
 ```
 
-This endpoint returns a paginated array of all users followed by the requested user.
+Returns a paginated array of all users currently followed by the requested user.
 
 ### HTTP Request
 
@@ -413,8 +411,6 @@ Code | Message
 curl -i -XPOST -H 'X-Apikey: [REQUIRED_APIKEY]' https://littlstar.com/api/v1/users/1/follow
 ```
 
-> successful JSON response
-
 <!-- example response-->
 ```json
 {
@@ -434,6 +430,10 @@ Start following the requested user.
 ### HTTP Request
 
 `POST https://littlstar.com/api/v1/users/:id/follow`
+
+<aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside>
 
 ### Query Parameters
 
@@ -456,8 +456,6 @@ Code | Message
 curl -i -XDELETE -H 'X-Apikey: [REQUIRED_APIKEY]' https://littlstar.com/api/v1/users/1/follow
 ```
 
-> successful JSON response
-
 <!-- example response-->
 ```json
 {
@@ -477,6 +475,10 @@ Stop following the requested user.
 ### HTTP Request
 
 `DELETE https://littlstar.com/api/v1/users/:id/follow`
+
+<aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside>
 
 ### Query Parameters
 

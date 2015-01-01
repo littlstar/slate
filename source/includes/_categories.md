@@ -7,8 +7,6 @@
 curl -i https://littlstar.com/api/v1/categories
 ```
 
-> successful JSON response
-
 <!-- example response -->
 ```json
 {
@@ -40,11 +38,11 @@ curl -i https://littlstar.com/api/v1/categories
 }
 ```
 
-This endpoint returns a paginated array of all categories.
+Returns a paginated array of all categories.
 
 ### HTTP Request
 
-`GET https://littlstar.com/api/v1/categories
+`GET https://littlstar.com/api/v1/categories`
 
 ### Query Parameters
 
@@ -54,15 +52,12 @@ page      |         | specific page number of results
 per_page  | 30      | number of results per page
 
 
-
 ## Single Category
 
 <!-- example request -->
 ```shell
 curl -i https://littlstar.com/api/v1/categories/1
 ```
-
-> successful JSON response
 
 <!-- example response -->
 ```json
@@ -83,7 +78,7 @@ curl -i https://littlstar.com/api/v1/categories/1
 }
 ```
 
-This endpoint will return a JSON object containing specific details about the requested category.
+Returns the details for the requested category.
 
 ### HTTP Request
 
@@ -106,10 +101,8 @@ Code | Message
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/categories/1/videos
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/categories/1/videos
 ```
-
-> successful JSON response
 
 <!-- example response-->
 ```json
@@ -175,11 +168,15 @@ curl -i https://littlstar.com/api/v1/categories/1/videos
 }
 ```
 
-This endpoint will return all videos from the requested category.
+Returns a paginated array of all videos in the requested category.
 
 ### HTTP Request
 
 `GET https://littlstar.com/api/v1/categories/:id/videos`
+
+<aside class="notice">
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside>
 
 ### Query Parameters
 

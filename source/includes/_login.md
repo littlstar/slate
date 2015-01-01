@@ -5,8 +5,6 @@
 curl -i -XPOST -H 'Content-Type: application/json' -d '{\"user\":{\"login\":\"\",\"password\":\"\"}}' https://littlstar.com/api/v1/login
 ```
 
-> successful login JSON response:
-
 <!-- example response -->
 ```json
 {
@@ -35,8 +33,7 @@ curl -i -XPOST -H 'Content-Type: application/json' -d '{\"user\":{\"login\":\"\"
     "videos_count": 0,
     "full_name": "John Smith",
     "followers_count": 0,
-    "following_count": 0,
-    "following": "true|false"
+    "following_count": 0
   }
 }
 ```

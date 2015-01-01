@@ -4,10 +4,8 @@
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/videos
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/videos
 ```
-
-> successful JSON response
 
 <!-- example response -->
 ```json
@@ -73,18 +71,18 @@ curl -i https://littlstar.com/api/v1/videos
 }
 ```
 
-This endpoint returns a paginated array of all videos.
+Returns a paginated array of all videos.
 
 ### HTTP Request
 
 `GET https://littlstar.com/api/v1/videos`
 
 <aside class="notice">
-When authenticated with an X-Apikey header two additional properties, stared and downvoted, will be included in the response indicating whether the currently authenticated user has stared or downvoted the requested video.
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
 </aside>
 
-<aside class="notice">
-When authenticated with an X-Apikey header two additional properties, stared and downvoted, will be included in the response indicating whether the currently authenticated user has stared or downvoted the requested video.
+<aside class="warning">
+This endpoint currently returns a select subset of sponsored and featured videos.
 </aside>
 
 ### Query Parameters
@@ -94,19 +92,13 @@ Parameter | Default | Description
 page      |         | specific page number of results
 per_page  | 30      | number of results per page
 
-<aside class="warning">
-This endpoint currently returns a select subset of sponsored and featured videos.
-</aside>
-
 
 ## Sponsored Videos
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/videos/sponsored
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/videos/sponsored
 ```
-
-> successful JSON response
 
 <!-- example response -->
 ```json
@@ -172,14 +164,14 @@ curl -i https://littlstar.com/api/v1/videos/sponsored
 }
 ```
 
-This endpoint returns a paginated array of all sponsored videos.
+Returns a paginated array of all sponsored videos.
 
 ### HTTP Request
 
 `GET https://littlstar.com/api/v1/videos/sponsored`
 
 <aside class="notice">
-When authenticated with an X-Apikey header two additional properties, stared and downvoted, will be included in the response indicating whether the currently authenticated user has stared or downvoted the requested video.
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
 </aside>
 
 ### Query Parameters
@@ -194,10 +186,8 @@ per_page  | 30      | number of results per page
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/videos/featured
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/videos/featured
 ```
-
-> successful JSON response
 
 <!-- example response -->
 ```json
@@ -270,7 +260,7 @@ This endpoint returns a paginated array of all featured videos.
 `GET https://littlstar.com/api/v1/videos/featured`
 
 <aside class="notice">
-When authenticated with an X-Apikey header two additional properties, stared and downvoted, will be included in the response indicating whether the currently authenticated user has stared or downvoted the requested video.
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
 </aside>
 
 ### Query Parameters
@@ -285,10 +275,8 @@ per_page  | 30      | number of results per page
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/videos/latest
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/videos/latest
 ```
-
-> successful JSON response
 
 <!-- example response -->
 ```json
@@ -354,14 +342,14 @@ curl -i https://littlstar.com/api/v1/videos/latest
 }
 ```
 
-This endpoint returns a paginated array of all latest videos.
+Returns a paginated array of all latest videos.
 
 ### HTTP Request
 
 `GET https://littlstar.com/api/v1/videos/latest`
 
 <aside class="notice">
-When authenticated with an X-Apikey header two additional properties, stared and downvoted, will be included in the response indicating whether the currently authenticated user has stared or downvoted the requested video.
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
 </aside>
 
 ### Query Parameters
@@ -376,10 +364,8 @@ per_page  | 30      | number of results per page
 
 <!-- example request -->
 ```shell
-curl -i https://littlstar.com/api/v1/videos/1
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' https://littlstar.com/api/v1/videos/1
 ```
-
-> successful JSON response
 
 <!-- example response -->
 ```json
@@ -432,7 +418,7 @@ curl -i https://littlstar.com/api/v1/videos/1
 }
 ```
 
-This endpoint will return a JSON object containing specific details about the requested video.
+Returns the details for the requested video.
 
 ### HTTP Request
 
@@ -443,7 +429,7 @@ A request for a video that is encoding, deleted, failed or currently hidden will
 </aside>
 
 <aside class="notice">
-When authenticated with an X-Apikey header two additional properties, stared and downvoted, will be included in the response indicating whether the currently authenticated user has stared or downvoted the requested video.
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
 </aside>
 
 ### Query Parameters
@@ -470,8 +456,6 @@ Code | Message
 curl -i -XPOST -H 'X-Apikey: [REQUIRED_APIKEY]' https://littstar.com/api/v1/videos/1/star
 ```
 
-> successful JSON response
-
 <!-- example response-->
 ```json
 {
@@ -491,6 +475,10 @@ Star the requested video.
 ### HTTP Request
 
 `POST https://littstar.com/api/v1/videos/1/star`
+
+<aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside>
 
 ### Query Parameters
 
@@ -513,8 +501,6 @@ Code | Message
 curl -i -XDELETE -H 'X-Apikey: [REQUIRED_APIKEY]' https://littlstar.com/api/v1/videos/1/star
 ```
 
-> successful JSON response
-
 <!-- example response-->
 ```json
 {
@@ -529,11 +515,15 @@ curl -i -XDELETE -H 'X-Apikey: [REQUIRED_APIKEY]' https://littlstar.com/api/v1/v
 }
 ```
 
-Star the requested video.
+Unstar the requested video.
 
 ### HTTP Request
 
 `DELETE https://littlstar.com/api/v1/videos/:id/star`
+
+<aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside>
 
 ### Query Parameters
 
@@ -556,8 +546,6 @@ Code | Message
 curl -i -XPOST -H 'X-Apikey: [REQUIRED_APIKEY]' https://littstar.com/api/v1/videos/1/downvote
 ```
 
-> successful JSON response
-
 <!-- example response-->
 ```json
 {
@@ -577,6 +565,10 @@ Downvote the requested video.
 ### HTTP Request
 
 `POST https://littstar.com/api/v1/videos/1/downvote`
+
+<aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside>
 
 ### Query Parameters
 
@@ -599,8 +591,6 @@ Code | Message
 curl -i -XDELETE -H 'X-Apikey: [REQUIRED_APIKEY]' https://littlstar.com/api/v1/videos/1/downvote
 ```
 
-> successful JSON response
-
 <!-- example response-->
 ```json
 {
@@ -620,6 +610,10 @@ Undownvote the requested video.
 ### HTTP Request
 
 `DELETE https://littlstar.com/api/v1/videos/:id/downvote`
+
+<aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside>
 
 ### Query Parameters
 
