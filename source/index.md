@@ -20,6 +20,7 @@ includes:
   - login
   - users
   - videos
+  - categories
   #- example
   #- errors
 
