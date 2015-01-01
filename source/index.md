@@ -48,4 +48,4 @@ Most of the Littlstar API offers read-only access to available resources (videos
 
 Littlstar uses an API key based system to grant authenticated access to users of our API. Upon successful [registration](https://littlstar.com/register) a random API key is generated for every user and can be retrieved from the bottom of your [settings](https://littlstar.com/settings) page after [logging in](https://littlstar.com/login).
 
-<!-- All individual RESTful endpoint documentation output below this point are defined in the source/includes/_* directory. -->
+<!-- All individual RESTful endpoint documentation sections output below this point are defined in the source/includes/ directory. -->
