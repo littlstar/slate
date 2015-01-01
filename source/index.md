@@ -12,13 +12,14 @@ language_tabs:
 toc_footers:
   - <a href='https://littlstar.com/register'>Join Littlstar to generate an API Key</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
-  - '&copy; 2014 Little Star Media, Inc.'
+  - <p>&copy; 2014 Little Star Media, Inc.<p>
 
 # Each RESTful API endpoint is documented in its own includes template. The site layout will iterate over
 # each of those files and output them in the order defined here.
 includes:
   - login
   - users
+  - videos
   #- example
   #- errors
 
