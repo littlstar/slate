@@ -18,6 +18,7 @@ toc_footers:
 # each of those files and output them in the order defined here.
 includes:
   - login
+  - users
   #- example
   #- errors
 
