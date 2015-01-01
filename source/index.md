@@ -22,7 +22,6 @@ includes:
   - videos
   - categories
   #- example
-  #- errors
 
 search: true
 ---
