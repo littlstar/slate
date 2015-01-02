@@ -1,0 +1,33 @@
+## Followers
+
+<!-- example shell request -->
+```shell
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/users/1/followers
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/users' %>
+
+Returns a paginated array of all users that currently follow the requested user.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/users/:id/followers`
+
+<aside class="notice">
+When authenticated with an X-Apikey header an additional property, `following`, will be included in each of the user objects in the array indicating whether the currently authenticated user is following that user.
+</aside>
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | user's integer ID or slug
+page      |         | Specific page of results
+per_page  | 30      | specific number of results per page
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find User with 'id'=

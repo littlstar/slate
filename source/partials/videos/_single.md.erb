@@ -1,0 +1,39 @@
+## Single Video
+
+<!-- example shell request -->
+```shell
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/videos/1
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/video' %>
+
+Returns the details for the requested video.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/videos/:id`
+
+<aside class="notice">
+A request for a video that is encoding, deleted, failed or currently hidden will result in a 403 error response with an appropriate error message. However, if the video is **hidden** and the current request has been authenticated by sending an X-Apikey header and the user requesting the video is the creator of the video, that video's details will be returned.
+</aside>
+
+<aside class="notice">
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside>
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | video's integer ID or slug
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find Video with 'id'=
+403  | Video is currently encoding
+403  | Video has been deleted
+403  | Video is not available
+403  | Video is currently hidden

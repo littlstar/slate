@@ -1,0 +1,37 @@
+## Single User Feed
+
+<!-- example shell request -->
+```shell
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/users/1/feed
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/videos' %>
+
+This endpoint returns a paginated array of all videos from a user's public or private feed. A user's public feed comprises all videos created by that user as well as those stared by the user. A user's private feed includes everything from their public feed plus all videos created or stared by the users they follow.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/users/:id/feed`
+
+<aside class="notice">
+The requested user's public feed is returned by default, their private feed can be returned by providing their apikey in the X-Apikey header.
+</aside>
+
+<aside class="notice">
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside>
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | user's integer ID or slug
+page      |         | Specific page of results
+per_page  | 30      | specific number of results per page
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find User with 'id'=

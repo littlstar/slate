@@ -1,0 +1,24 @@
+## All Categories
+
+<!-- example request -->
+```shell
+curl -i <%= current_page.data.api_url %>/categories
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/categories' %>
+
+Returns a paginated array of all categories.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/categories`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+page      |         | specific page number of results
+per_page  | 30      | number of results per page
+
+

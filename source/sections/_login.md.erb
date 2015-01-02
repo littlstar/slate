@@ -1,0 +1,29 @@
+# Login
+
+<!-- example shell request -->
+```shell
+curl -i -XPOST -H 'Content-Type: application/json' -d '{\"user\":{\"login\":\"\",\"password\":\"\"}}' <%= current_page.data.api_url %>/login
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/login' %>
+
+Login to an existing user account.
+
+### HTTP Request
+
+`POST <%= current_page.data.api_url %>/login`
+
+### Query Parameters
+
+Parameter      | Default | Description
+---------      | ------- | -----------
+user[login]    |         | user's email or username
+user[password] |         | user's password
+
+### Error Responses
+
+Code | Message
+---- | -------
+400  | Missing required user parameter
+401  | Invalid login or password

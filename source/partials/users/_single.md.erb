@@ -1,0 +1,35 @@
+## Single User
+
+<!-- example shell request -->
+```shell
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/users/1
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/user' %>
+
+Returns the publicly available details for the requested user.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/users/:id`
+
+<aside class="notice">
+If the X-Apikey authentication header is provided and the apikey matches the requested user's apikey then their full private profile will be returned. This authenticated response will look exactly like the successful [login response](#login) shown above.
+</aside>
+
+<aside class="notice">
+When authenticated with an X-Apikey header an additional property named following will be included in the response indicating whether the currently authenticated user is following the requested user.
+</aside>
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | user's integer ID or slug
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find User with 'id'=

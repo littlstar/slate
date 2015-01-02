@@ -1,0 +1,32 @@
+## Follow
+
+<!-- example shell request -->
+```shell
+curl -i -XPOST -H 'X-Apikey: [REQUIRED_APIKEY]' <%= current_page.data.api_url %>/users/1/follow
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/follow' %>
+
+Start following the requested user.
+
+### HTTP Request
+
+`POST <%= current_page.data.api_url %>/users/:id/follow`
+
+<aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside>
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | user's integer ID or slug
+
+### Error Responses
+
+Code | Message
+---- | -------
+401  | A valid apikey is required to access this endpoint
+404  | Couldn't find User with 'id'=

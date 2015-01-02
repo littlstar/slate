@@ -1,0 +1,29 @@
+## Following
+
+<!-- example shell request -->
+```shell
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/users/1/following
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/users' %>
+
+Returns a paginated array of all users currently followed by the requested user.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/users/:id/following`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | user's integer ID or slug
+page      |         | Specific page of results
+per_page  | 30      | specific number of results per page
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find User with 'id'=

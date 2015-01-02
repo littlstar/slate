@@ -1,0 +1,27 @@
+## Single Category
+
+<!-- example request -->
+```shell
+curl -i <%= current_page.data.api_url %>/categories/1
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/category' %>
+
+Returns the details for the requested category.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/categories/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | category's integer ID or slug
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find Category with 'id'=
