@@ -8,9 +8,10 @@
   },
   "pagination": null,
   "data": {
+    "id": 1,
     "slug": "b698da8a",
     "title": "Time Trials",
-    "description": "Ride along with a real Formula One driver and experience the thrill of speeding around the track first hand!",
+    "description": "",
     "sponsored": false,
     "featured": true,
     "score": 0,
