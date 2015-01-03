@@ -31,10 +31,11 @@ All development takes place in the `/source` directory. The sections and partial
 Local development should be done either directly in the master branch, or in a topic/working branch which is then merged into master. When you're ready to deploy/publish, run the following rake command from the master branch:
 
 ```bash
+git push origin master
 rake publish
 ```
 
-This command will build the site and push it to the gh-pages branch on Github, while simultaneously pushing the latest changes to the remote master branch.
+This command will build the site and push it to the gh-pages branch on Github.
 
 ## Further Reading
 
