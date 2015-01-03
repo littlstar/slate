@@ -15,22 +15,26 @@ bundle
 The site can be compiled and served locally by running:
 
 ```bash
-middleman s
+middleman
 ```
 
 ## Configuration
 
-Global site configuration is stored in the `config.rb` file.
+Global site configuration is stored in the `config.rb` file. Specific site configuration is stored in the `index.md.erb` template. The values at the top of this file are used throughout the site to generate specific sections and pieces of functionality.
+
+## Project Structure
+
+All development takes place in the `/source` directory. The sections and partials in the various subfolders of this directory are combined by Middleman to generate the final static HTML site structure.
 
 ## Development and Deploy
 
-Local development is done either directly in the master branch, or in a topic/working branch which is then merged into master. When you're ready to deploy/publish, run the following rake command from the master branch:
+Local development should be done either directly in the master branch, or in a topic/working branch which is then merged into master. When you're ready to deploy/publish, run the following rake command from the master branch:
 
 ```bash
 rake publish
 ```
 
-This command will build the site and push it to the gh-pages branch on Github.
+This command will build the site and push it to the gh-pages branch on Github, while simultaneously pushing the latest changes to the remote master branch.
 
 ## Further Reading
 
