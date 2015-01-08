@@ -41,6 +41,7 @@
       "username": "",
       "avatar_url": ""
     },
+    "download": "true|false"
     "stars": 0,
     "downvotes": 0,
     "stared": "true|false",
