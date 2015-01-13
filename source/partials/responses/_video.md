@@ -36,9 +36,9 @@
       "thumbnail": ""
     },
     "user": {
-      "id": "",
-      "slug": "",
-      "username": "",
+      "id": 1,
+      "slug": "jsmith",
+      "username": "jsmith",
       "avatar_url": ""
     },
     "download": "true|false"
