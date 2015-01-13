@@ -4,7 +4,7 @@
     "code": 200,
     "errors": null,
     "message": null,
-    "data_count": 30
+    "data_count": null
   },
   "pagination": null,
   "data": {
