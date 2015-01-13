@@ -1,0 +1,30 @@
+## Comments
+
+<!-- example request -->
+```shell
+curl -i <%= current_page.data.api_url %>/videos/1/comments
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/comments' %>
+
+Returns a paginated array of all comments on the requested video.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/videos/:id/comments`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | video's integer ID or slug
+page      |         | specific page of results
+per_page  | 30      | number of results per page
+
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find Video with 'id'=
