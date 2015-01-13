@@ -8,7 +8,7 @@
   },
   "pagination": null,
   "data": {
-    "id": 1,
+    "id": 2,
     "name": "Sports",
     "created_at": "1979-04-13T04:20:00.778-04:20",
     "updated_at": "1979-04-13T04:20:00.778-04:20",
