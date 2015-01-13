@@ -19,8 +19,8 @@
     {},
     {
       "id": 1,
-      "slug": "b698da8a",
-      "title": "Time Trials",
+      "slug": "a1b2c3d4",
+      "title": "360 Degrees of Separation",
       "description": "",
       "sponsored": false,
       "featured": true,
@@ -51,7 +51,7 @@
         "username": "jsmith",
         "avatar_url": ""
       },
-      "download": "true|false"
+      "download": "true|false",
       "stars": 0,
       "downvotes": 0,
       "stared": "true|false",
