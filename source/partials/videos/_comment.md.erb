@@ -1,0 +1,35 @@
+## Comment
+
+<!-- example shell request -->
+```shell
+curl -i -XPOST -H 'Content-Type: application/json' -d '{\"comment\":{\"body\":\"\"}}' <%= current_page.data.api_url %>/videos/1/comment
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/comment' %>
+
+Comment on the requested video.
+
+### HTTP Request
+
+`POST <%= current_page.data.api_url %>/videos/1/comment`
+
+<aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside>
+
+### Query Parameters
+
+Parameter     | Default | Description
+---------     | ------- | -----------
+id            |         | video's integer ID or slug
+comment[body] |         | comment body
+
+### Error Responses
+
+Code | Message
+---- | -------
+401  | A valid apikey is required to access this endpoint
+400  | Missing required comment parameter
+400  | Body can't be blank
+404  | Couldn't find Video with 'id'=
