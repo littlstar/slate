@@ -9,9 +9,10 @@
   "pagination": null,
   "data": {
     "id": 2,
+    "slug": "sports",
     "name": "Sports",
     "created_at": "1979-04-13T04:20:00.778-04:20",
-    "updated_at": "1979-04-13T04:20:00.778-04:20",
+    "updated_at": "1979-04-13T04:20:00.778-04:20"
   }
 }
 ```
