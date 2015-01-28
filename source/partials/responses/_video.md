@@ -12,13 +12,19 @@
     "slug": "a1b2c3d4",
     "title": "360 Degrees of Separation",
     "description": "",
+    "visibility": "visible|hidden",
     "sponsored": false,
     "featured": true,
     "score": 0,
+    "duration": 0,
+    "views": 0,
+    "download": "true|false",
+    "stars": 0,
+    "downvotes": 0,
+    "stared": "true|false",
+    "downvoted": "true|false",
     "created_at": "1979-04-13T04:20:00.778-04:20",
     "updated_at": "1979-04-13T04:20:00.778-04:20",
-    "views": 0,
-    "duration": 0,
     "versions": {
       "web": "",
       "mobile": "",
@@ -40,12 +46,7 @@
       "slug": "jsmith",
       "username": "jsmith",
       "avatar_url": ""
-    },
-    "download": "true|false",
-    "stars": 0,
-    "downvotes": 0,
-    "stared": "true|false",
-    "downvoted": "true|false"
+    }
   }
 }
 ```
