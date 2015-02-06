@@ -28,7 +28,9 @@
     "versions": {
       "web": "",
       "mobile": "",
-      "webm": ""
+      "webm": "",
+      "vr": "",
+      "download": ""
     },
     "posters": {
       "web": "",
