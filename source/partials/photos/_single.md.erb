@@ -1,0 +1,38 @@
+## Single Photo
+
+<!-- example shell request -->
+```shell
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/photos/1
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/photo' %>
+
+Returns the details for the requested photo.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/photos/:id`
+
+<aside class="notice">
+A request for a photo that is processing, deleted, or currently hidden will result in a 403 error response with an appropriate error message. However, if the photo is **hidden** and the current request has been authenticated by sending an X-Apikey header and the user requesting the photo is the creator of the photo, that photo's details will be returned.
+</aside>
+
+<aside class="notice">
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+</aside>
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | photo's integer ID or slug
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find Photo with 'id'=
+403  | Photo is currently processing
+403  | Photo has been deleted
+403  | Photo is currently hidden
