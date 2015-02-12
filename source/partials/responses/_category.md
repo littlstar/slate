@@ -11,6 +11,8 @@
     "id": 2,
     "slug": "sports",
     "name": "Sports",
+    "videos_count": 42,
+    "photos_count": 42,
     "created_at": "1979-04-13T04:20:00.778-04:20",
     "updated_at": "1979-04-13T04:20:00.778-04:20"
   }
