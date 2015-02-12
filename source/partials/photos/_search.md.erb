@@ -1,0 +1,33 @@
+## Photo Search
+
+<!-- example shell request -->
+```shell
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/photos/search?q=dance
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/photos' %>
+
+Returns a paginated array of all photos matching the search query.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/photos/search?q=`
+
+<aside class="notice">
+When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+</aside>
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+q         |         | search query
+page      |         | specific page of results
+per_page  | 30      | number of results per page
+
+### Error Responses
+
+Code | Message
+---- | -------
+400  | You must provide a search term!
