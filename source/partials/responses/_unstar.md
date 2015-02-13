@@ -3,7 +3,7 @@
   "meta": {
     "code": 200,
     "errors": null,
-    "message": "Successfully unstarred video",
+    "message": "Unstar Successful",
     "data_count": null
   },
   "pagination": null,
