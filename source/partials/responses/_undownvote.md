@@ -3,7 +3,7 @@
   "meta": {
     "code": 200,
     "errors": null,
-    "message": "Successfully undownvoted video",
+    "message": "Undownvote Successful",
     "data_count": null
   },
   "pagination": null,
