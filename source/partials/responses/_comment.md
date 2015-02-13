@@ -3,7 +3,7 @@
   "meta": {
     "code": 200,
     "errors": null,
-    "message": "Successfully commented on video",
+    "message": "Comment Successful",
     "data_count": null
   },
   "pagination": null,
