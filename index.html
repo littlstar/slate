@@ -58,6 +58,7 @@
         <li><a href='https://github.com/littlstar'>Github</a></li>
         <li><a href='https://twitter.com/littlstardev'>Twitter</a></li>
         <li><a href='mailto:support@littlstar.com'>Contact Us</a></li>
+        <li><a href='http://developer.littlstar.com/terms'>Terms</a></li>
         <li><a href='http://github.com/tripit/slate'>Powered by Slate</a></li>
         <li><a href='http://twinkle.littlstar.com'>&copy; 2014 Little Star Media, Inc.</a></li>
       </ul>
@@ -87,7 +88,7 @@
 <p>Make sure to replace <code class="prettyprint">a1b2c3d4e5f6g7h8i9j</code> with your actual API key.</p>
 </blockquote>
 
-<p>Most of the Littlstar API offers read-only access to available resources (videos, users, etc). However, there are interactive endpoints that require a user to be authenticated before access can be granted.</p>
+<p>Most of the Littlstar API offers read-only access to available resources (videos, photos, users, etc). However, there are interactive endpoints that require a user to be authenticated before access can be granted.</p>
 
 <p>Littlstar uses an API key based system to grant authenticated access to users of our API. Upon successful <a href="https://littlstar.com/register">registration</a> a random API key is generated for every user and can be retrieved from the bottom of your <a href="https://littlstar.com/settings">settings</a> page after <a href="https://littlstar.com/login">logging in</a>.</p>
 
@@ -242,7 +243,7 @@ When authenticated with an X-Apikey header an additional property named followin
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
-<h2 id='single-user-videos'>Single User Videos</h2>
+<h2 id='user-videos'>User Videos</h2>
 <!-- example shell request -->
 <pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/videos
 </code></pre>
@@ -272,17 +273,26 @@ When authenticated with an X-Apikey header an additional property named followin
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -300,12 +310,7 @@ When authenticated with an X-Apikey header an additional property named followin
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -318,6 +323,14 @@ When authenticated with an X-Apikey header an additional property named followin
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header and the apikey matches the requested user’s apikey any videos marked as hidden by that user will be included in the response.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -355,7 +368,112 @@ When authenticated with an X-Apikey header two additional properties, <code clas
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
-<h2 id='single-user-feed'>Single User Feed</h2>
+<h2 id='user-photos'>User Photos</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/photos
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a paginated array of all photos created by the requested user.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id/photos</code></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+</aside></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header and the apikey matches the requested user’s apikey any photos marked as hidden by that user will be included in the response.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>user&rsquo;s integer ID or slug</td>
+</tr>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
+</tr>
+</tbody></table>
+<h2 id='user-feed'>User Feed</h2>
 <!-- example shell request -->
 <pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/feed
 </code></pre>
@@ -385,17 +503,26 @@ When authenticated with an X-Apikey header two additional properties, <code clas
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -413,12 +540,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -435,6 +557,10 @@ The requested user&rsquo;s public feed is returned by default, their private fee
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -792,17 +918,26 @@ An X-Apikey header containing a valid API key is required to access this endpoin
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -820,12 +955,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -838,6 +968,10 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
 
 <p><aside class="warning">
@@ -892,17 +1026,26 @@ This endpoint currently returns a select subset of sponsored and featured videos
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -920,12 +1063,7 @@ This endpoint currently returns a select subset of sponsored and featured videos
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -938,6 +1076,10 @@ This endpoint currently returns a select subset of sponsored and featured videos
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -988,17 +1130,26 @@ When authenticated with an X-Apikey header two additional properties, <code clas
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1016,12 +1167,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -1034,6 +1180,10 @@ When authenticated with an X-Apikey header two additional properties, <code clas
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -1084,17 +1234,26 @@ When authenticated with an X-Apikey header two additional properties, <code clas
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1112,12 +1271,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -1130,6 +1284,114 @@ When authenticated with an X-Apikey header two additional properties, <code clas
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h2 id='vr-videos'>VR Videos</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/vr
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"banners"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a paginated array of all videos that have been identified as optimized for display in Oculus Rift, GearVR, and other Head Mounted Displays.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/vr</code></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -1170,17 +1432,26 @@ When authenticated with an X-Apikey header two additional properties, <code clas
     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1198,12 +1469,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1217,7 +1483,11 @@ A request for a video that is encoding, deleted, failed or currently hidden will
 </aside></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in the response indicating whether the currently authenticated user has stared or downvoted this video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -1261,7 +1531,128 @@ When authenticated with an X-Apikey header two additional properties, <code clas
 <td>Video is currently hidden</td>
 </tr>
 </tbody></table>
-<h2 id='star'>Star</h2>
+<h2 id='video-search'>Video Search</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/search?q<span class="o">=</span>dance
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"banners"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a paginated array of all videos matching the search query.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/search?q=</code></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td></td>
+<td>search query</td>
+</tr>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>You must provide a search term!</td>
+</tr>
+</tbody></table>
+<h2 id='star-video'>Star Video</h2>
 <!-- example shell request -->
 <pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/star
 </code></pre>
@@ -1272,7 +1663,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully starred video"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Star Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1317,7 +1708,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
-<h2 id='unstar'>Unstar</h2>
+<h2 id='unstar-video'>Unstar Video</h2>
 <!-- example shell request -->
 <pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/star
 </code></pre>
@@ -1328,7 +1719,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully unstarred video"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unstar Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1373,7 +1764,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
-<h2 id='downvote'>Downvote</h2>
+<h2 id='downvote-video'>Downvote Video</h2>
 <!-- example shell request -->
 <pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/downvote
 </code></pre>
@@ -1384,7 +1775,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully downvoted video"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downvote Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1429,7 +1820,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
-<h2 id='undownvote'>Undownvote</h2>
+<h2 id='undownvote-video'>Undownvote Video</h2>
 <!-- example shell request -->
 <pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/downvote
 </code></pre>
@@ -1440,7 +1831,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully undownvoted video"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undownvote Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1485,7 +1876,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
-<h2 id='comments'>Comments</h2>
+<h2 id='video-comments'>Video Comments</h2>
 <!-- example request -->
 <pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/videos/1/comments
 </code></pre>
@@ -1565,7 +1956,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
-<h2 id='comment'>Comment</h2>
+<h2 id='video-comment'>Video Comment</h2>
 <!-- example shell request -->
 <pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s1">'{\"comment\":{\"body\":\"\"}}'</span> https://littlstar.com/api/v1/videos/1/comment
 </code></pre>
@@ -1576,7 +1967,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully commented on video"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comment Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1635,6 +2026,829 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </tr>
 </tbody></table>
 
+<!-- render photos section -->
+<h1 id='photos'>Photos</h1><h2 id='all-photos'>All Photos</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a paginated array of all photos.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/photos</code></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h2 id='featured-photos'>Featured Photos</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/featured
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a paginated array of all featured photos.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/featured</code></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h2 id='latest-photos'>Latest Photos</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/latest
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a paginated array of all latest photos.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/latest</code></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h2 id='single-photo'>Single Photo</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/1
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns the details for the requested photo.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/:id</code></p>
+
+<p><aside class="notice">
+A request for a photo that is processing, deleted, or currently hidden will result in a 403 error response with an appropriate error message. However, if the photo is <strong>hidden</strong> and the current request has been authenticated by sending an X-Apikey header and the user requesting the photo is the creator of the photo, that photo&rsquo;s details will be returned.
+</aside></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in the response indicating whether the currently authenticated user has stared or downvoted this photo.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>photo&rsquo;s integer ID or slug</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Photo is currently processing</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Photo has been deleted</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Photo is currently hidden</td>
+</tr>
+</tbody></table>
+<h2 id='photo-search'>Photo Search</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/search?q<span class="o">=</span>dance
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a paginated array of all photos matching the search query.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/search?q=</code></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td></td>
+<td>search query</td>
+</tr>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>You must provide a search term!</td>
+</tr>
+</tbody></table>
+<h2 id='star-photo'>Star Photo</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/star
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Star Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Star the requested photo.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">POST https://littlstar.com/api/v1/photos/1/star</code></p>
+
+<p><aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>photo&rsquo;s integer ID or slug</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>A valid apikey is required to access this endpoint</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
+</tr>
+</tbody></table>
+<h2 id='unstar-photo'>Unstar Photo</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/star
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unstar Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Unstar the requested photo.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">DELETE https://littlstar.com/api/v1/photos/:id/star</code></p>
+
+<p><aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>photo&rsquo;s integer ID or slug</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>A valid apikey is required to access this endpoint</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
+</tr>
+</tbody></table>
+<h2 id='downvote-photo'>Downvote Photo</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/downvote
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downvote Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Downvote the requested photo.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">POST https://littlstar.com/api/v1/photos/1/downvote</code></p>
+
+<p><aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>photo&rsquo;s integer ID or slug</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>A valid apikey is required to access this endpoint</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
+</tr>
+</tbody></table>
+<h2 id='undownvote-photo'>Undownvote Photo</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/downvote
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undownvote Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Undownvote the requested photo.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">DELETE https://littlstar.com/api/v1/photos/:id/downvote</code></p>
+
+<p><aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>photo&rsquo;s integer ID or slug</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>A valid apikey is required to access this endpoint</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
+</tr>
+</tbody></table>
+<h2 id='photo-comments'>Photo Comments</h2>
+<!-- example request -->
+<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/photos/1/comments
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Help - I'm trapped in an example API response and I can't get out!!"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a paginated array of all comments on the requested photo.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/:id/comments</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>photo&rsquo;s integer ID or slug</td>
+</tr>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
+</tr>
+</tbody></table>
+<h2 id='photo-comment'>Photo Comment</h2>
+<!-- example shell request -->
+<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s1">'{\"comment\":{\"body\":\"\"}}'</span> https://littlstar.com/api/v1/photos/1/comment
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comment Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Comment on the requested photo.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">POST https://littlstar.com/api/v1/photos/1/comment</code></p>
+
+<p><aside class="warning">
+An X-Apikey header containing a valid API key is required to access this endpoint.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>photo&rsquo;s integer ID or slug</td>
+</tr>
+<tr>
+<td>comment[body]</td>
+<td></td>
+<td>comment body</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>A valid apikey is required to access this endpoint</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing required comment parameter</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Body can&rsquo;t be blank</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
+</tr>
+</tbody></table>
+
 <!-- render categories section -->
 <h1 id='categories'>Categories</h1><h2 id='all-categories'>All Categories</h2>
 <!-- example request -->
@@ -1665,6 +2879,8 @@ An X-Apikey header containing a valid API key is required to access this endpoin
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sports"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sports"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"videos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"photos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -1714,6 +2930,8 @@ An X-Apikey header containing a valid API key is required to access this endpoin
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sports"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sports"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"videos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"photos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -1749,7 +2967,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Category with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
-<h2 id='single-category-videos'>Single Category Videos</h2>
+<h2 id='category-videos'>Category Videos</h2>
 <!-- example request -->
 <pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/categories/1/videos
 </code></pre>
@@ -1779,17 +2997,26 @@ An X-Apikey header containing a valid API key is required to access this endpoin
       </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truefalse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1807,12 +3034,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -1825,6 +3047,111 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+</aside></p>
+
+<p><aside class="notice">
+The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
+</aside></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>category&rsquo;s integer ID or slug</td>
+</tr>
+<tr>
+<td>page</td>
+<td></td>
+<td>specific page of results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td>number of results per page</td>
+</tr>
+</tbody></table>
+<h3 id='error-responses'>Error Responses</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>404</td>
+<td>Couldn&rsquo;t find Category with &lsquo;id&rsquo;=</td>
+</tr>
+</tbody></table>
+<h2 id='category-photos'>Category Photos</h2>
+<!-- example request -->
+<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/categories/1/photos
+</code></pre>
+
+<!-- example response -->
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a paginated array of all photos in the requested category.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET https://littlstar.com/api/v1/categories/:id/photos</code></p>
+
+<p><aside class="notice">
+When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
