@@ -14,7 +14,6 @@
     "description": "",
     "visibility": "visible|hidden",
     "featured": "true|false",
-    "score": 0,
     "views": 0,
     "stars": 0,
     "downvotes": 0,

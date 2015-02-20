@@ -16,7 +16,6 @@
     "sponsored": "true|false",
     "featured": "true|false",
     "vr_optimized": "true|false",
-    "score": 0,
     "duration": 0,
     "views": 0,
     "download": "true|false",
