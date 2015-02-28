@@ -35,6 +35,7 @@
       "downvoted": "true|false",
       "created_at": "1979-04-13T04:20:00.778-04:20",
       "updated_at": "1979-04-13T04:20:00.778-04:20",
+      "hashtag_list": ["array", "of", "hashtags"],
       "versions": {
         "web": "",
         "mobile": "",
