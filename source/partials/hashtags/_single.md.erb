@@ -1,0 +1,27 @@
+## Single Hashtag
+
+<!-- example request -->
+```shell
+curl -i <%= current_page.data.api_url %>/hashtags/360selfie
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/hashtag' %>
+
+Returns the details for the requested hashtag.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/hashtags/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | hashtag's name
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find Hashtag with 'id'=
