@@ -14,6 +14,7 @@
     "description": "",
     "visibility": "visible|hidden",
     "featured": "true|false",
+    "vr_optimized": "true|false",
     "views": 0,
     "stars": 0,
     "downvotes": 0,
