@@ -18,10 +18,10 @@
   "data": [
     {},
     {
-      name: "#360selfie",
-      videos_count: 0,
-      photos_count: 0,
-      total_count: 0
+      "name": "#360selfie",
+      "videos_count": 0,
+      "photos_count": 0,
+      "total_count": 0
     },
     {}
   ]
