@@ -25,6 +25,8 @@
       "last_name": "Smith",
       "bio": "",
       "avatar_url": "",
+      "featured": "true|false",
+      "verified": "true|false",
       "created_at": "1979-04-13T04:20:00.778-04:20",
       "updated_at": "1979-04-13T04:20:00.778-04:20",
       "videos_count": 0,
