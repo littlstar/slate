@@ -23,7 +23,7 @@
       "title": "360 Degrees of Separation",
       "description": "",
       "visibility": "visible|hidden",
-      "sponsored": "truefalse",
+      "sponsored": "true|false",
       "featured": "true|false",
       "vr_optimized": "true|false",
       "duration": 0,
