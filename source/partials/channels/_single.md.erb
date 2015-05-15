@@ -1,0 +1,27 @@
+## Single Channel
+
+<!-- example request -->
+```shell
+curl -i <%= current_page.data.api_url %>/channels/1
+```
+
+<!-- example response -->
+<%= partial 'partials/responses/channel' %>
+
+Returns the details for the requested channel.
+
+### HTTP Request
+
+`GET <%= current_page.data.api_url %>/channels/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id        |         | channel's integer ID or slug
+
+### Error Responses
+
+Code | Message
+---- | -------
+404  | Couldn't find Channel with 'id'=
