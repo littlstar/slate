@@ -8,7 +8,7 @@ curl -i -H 'X-Apikey: [REQUIRED_APIKEY]' <%= current_page.data.api_url %>/notifi
 <!-- example response -->
 <%= partial 'partials/responses/notifications' %>
 
-Returns a paginated array of all notifcations for the user to which the required API key belongs.
+Returns a paginated array of all notifications for the user to which the required API key belongs. The __notifier__ property of the response represents the user that took the action that created the notification. The __recipient__ property represents the resource that the notifier acted upon. It will contain a [single video](#single-video) response, a [single photo](#single-photo) response, or a [single user](#single-user) response. The __notification__ property contains a simple prepared sentence that can be used if more advanced parsing of the __notifier__ and/or __recipient__ properties is not required.
 
 ### HTTP Request
 
