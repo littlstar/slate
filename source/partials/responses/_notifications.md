@@ -18,14 +18,17 @@
   "data": [
     {},
     {
-      "id": 2,
-      "slug": "sports",
-      "name": "Sports",
-      "image_url": "",
-      "videos_count": 42,
-      "photos_count": 42,
+      "id": 1,
+      "action": "starred",
       "created_at": "1979-04-13T04:20:00.778-04:20",
-      "updated_at": "1979-04-13T04:20:00.778-04:20"
+      "updated_at": "1979-04-13T04:20:00.778-04:20",
+      "notifier": {
+        "id": 1,
+        "slug": "jsmith",
+        "username": "jsmith",
+        "avatar_url": ""
+      },
+      "notification": "jsmith starred 360 Degrees of Separation"
     },
     {}
   ]
