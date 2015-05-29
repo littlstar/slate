@@ -2,7 +2,7 @@
 
 <!-- example shell request -->
 ```shell
-curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/photos/search?q=dance
+curl -i -H 'X-Apikey: [OPTIONAL_APIKEY]' <%= current_page.data.api_url %>/search/photos?q=dance
 ```
 
 <!-- example response -->
@@ -12,7 +12,7 @@ Returns a paginated array of all photos matching the search query.
 
 ### HTTP Request
 
-`GET <%= current_page.data.api_url %>/photos/search?q=`
+`GET <%= current_page.data.api_url %>/search/photos?q=`
 
 <aside class="notice">
 When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
