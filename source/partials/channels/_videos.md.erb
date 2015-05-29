@@ -15,6 +15,10 @@ Returns a paginated array of all videos in the requested channel.
 `GET <%= current_page.data.api_url %>/channels/:id/videos`
 
 <aside class="notice">
+A request for a channel that is currently hidden will result in a 403 error response with an appropriate error message. However, if the current request has been authenticated by sending an X-Apikey header and the user requesting the channel is the creator of the channel, that channel's details will be returned.
+</aside>
+
+<aside class="notice">
 When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
 </aside>
 
@@ -35,3 +39,4 @@ per_page  | 30      | number of results per page
 Code | Message
 ---- | -------
 404  | Couldn't find Channel with 'id'=
+403  | Channel is currently hidden
