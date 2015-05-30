@@ -26,6 +26,11 @@
       "visibility": "visible|hidden",
       "videos_count": 42,
       "photos_count": 42,
+      "posters": {
+        "web": "",
+        "mobile": "",
+        "small": ""
+      },
       "banners": {
         "large": "",
         "medium": "",
