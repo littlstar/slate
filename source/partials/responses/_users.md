@@ -19,6 +19,7 @@
     {},
     {
       "id": 1,
+      "type": "user",
       "slug": "jsmith",
       "username": "jsmith",
       "first_name": "John",

@@ -9,6 +9,7 @@
   "pagination": null,
   "data": {
     "id": 1,
+    "type": "photo",
     "slug": "a1b2c3d4",
     "title": "360 Degrees of Separation",
     "description": "",

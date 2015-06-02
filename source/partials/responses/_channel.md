@@ -9,6 +9,7 @@
   "pagination": null,
   "data": {
     "id": 2,
+    "type": "channel",
     "slug": "a1b2c3d4",
     "name": "360 Shades of Grey",
     "sponsored": "true|false",

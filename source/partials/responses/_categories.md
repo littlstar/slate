@@ -19,6 +19,7 @@
     {},
     {
       "id": 2,
+      "type": "category",
       "slug": "sports",
       "name": "Sports",
       "image_url": "",

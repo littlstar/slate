@@ -9,6 +9,7 @@
   "pagination": null,
   "data": {
     "name": "#360selfie",
+    "type": "hashtag",
     "videos_count": 0,
     "photos_count": 0,
     "total_count": 0

@@ -19,6 +19,7 @@
     {},
     {
       "body": "Help - I'm trapped in an example API response and I can't get out!!",
+      "type": "comment",
       "created_at": "1979-04-13T04:20:00.778-04:20",
       "updated_at": "1979-04-13T04:20:00.778-04:20",
       "user": {

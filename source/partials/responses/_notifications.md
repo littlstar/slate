@@ -19,6 +19,7 @@
     {},
     {
       "id": 1,
+      "type": "notification",
       "action": "followed",
       "created_at": "1979-04-13T04:20:00.778-04:20",
       "updated_at": "1979-04-13T04:20:00.778-04:20",

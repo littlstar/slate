@@ -13,6 +13,7 @@
     "age": 35,
     "apikey": "a1b2c3d4e5f6g7h8i9j",
     "id": 1,
+    "type": "user",
     "slug": "jsmith",
     "username": "jsmith",
     "first_name": "John",
