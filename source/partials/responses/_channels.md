@@ -28,14 +28,20 @@
       "videos_count": 42,
       "photos_count": 42,
       "poster_url": "",
+      "created_at": "1979-04-13T04:20:00.778-04:20",
+      "updated_at": "1979-04-13T04:20:00.778-04:20",
       "banners": {
         "large": "",
         "medium": "",
         "small": "",
         "thumbnail": ""
       },
-      "created_at": "1979-04-13T04:20:00.778-04:20",
-      "updated_at": "1979-04-13T04:20:00.778-04:20"
+      "user": {
+        "id": 1,
+        "slug": "jsmith",
+        "username": "jsmith",
+        "avatar_url": ""
+      }
     },
     {}
   ]
