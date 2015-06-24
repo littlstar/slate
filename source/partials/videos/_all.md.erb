@@ -14,16 +14,16 @@ Returns a paginated array of all videos.
 
 `GET <%= current_page.data.api_url %>/videos`
 
+<aside class="warning">
+This endpoint currently returns a select subset of sponsored and featured videos.
+</aside>
+
 <aside class="notice">
 When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
 </aside>
 
 <aside class="notice">
 The "download" version will only be returned if the video owner has enabled downloads.
-</aside>
-
-<aside class="warning">
-This endpoint currently returns a select subset of sponsored and featured videos.
 </aside>
 
 ### Query Parameters

@@ -26,6 +26,7 @@
     "updated_at": "1979-04-13T04:20:00.778-04:20",
     "videos_count": 0,
     "photos_count": 0,
+    "channels_count": 0,
     "full_name": "John Smith",
     "followers_count": 0,
     "following_count": 0
