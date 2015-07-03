@@ -15,7 +15,7 @@ Returns a paginated array of videos, photos, users, and channels matching the se
 `GET <%= current_page.data.api_url %>/search?q=`
 
 <aside class="notice">
-When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, `stared`, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside>
 
 <aside class="notice">
@@ -23,7 +23,7 @@ The "download" version will only be returned if the video owner has enabled down
 </aside>
 
 <aside class="notice">
-When authenticated with an X-Apikey header two additional properties, `stared` and `downvoted`, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, `stared`, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside>
 
 <aside class="notice">
