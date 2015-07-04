@@ -174,91 +174,6 @@
 </tr>
 </tbody></table>
 
-<!-- render notifications section -->
-<h1 id='notifications'>Notifications</h1>
-<!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/notifications
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notification"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"followed"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"notifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SINGLE VIDEO|SINGLE PHOTO|SINGLE USER"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"notification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith followed you"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a paginated array of all notifications for the user to which the required API key belongs. The <strong>notifier</strong> property of the response represents the user that took the action that created the notification. The <strong>recipient</strong> property represents the resource that the notifier acted upon. It will contain a <a href="#single-video">single video</a> response, a <a href="#single-photo">single photo</a> response, or a <a href="#single-user">single user</a> response. The <strong>notification</strong> property contains a simple prepared sentence that can be used if more advanced parsing of the <strong>notifier</strong> and/or <strong>recipient</strong> properties is not required.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/notifications</code></p>
-
-<p><aside class="warning">
-An X-Apikey header containing a valid API key is required to access this endpoint.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td></td>
-<td>specific page of results</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>30</td>
-<td>number of results per page</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>401</td>
-<td>A valid apikey is required to access this endpoint</td>
-</tr>
-</tbody></table>
-
 <!-- render search section -->
 <h1 id='search'>Search</h1><h2 id='search-all'>Search All</h2>
 <!-- example shell request -->
@@ -297,7 +212,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/search?q=</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -305,7 +220,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </aside></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 
 <p><aside class="notice">
@@ -386,9 +301,7 @@ When authenticated with an X-Apikey header an additional property named followin
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -427,7 +340,7 @@ When authenticated with an X-Apikey header an additional property named followin
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/search/videos?q=</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -505,9 +418,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -535,7 +446,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/search/photos?q=</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -879,9 +790,7 @@ When authenticated with an X-Apikey header an additional property named followin
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -920,7 +829,7 @@ When authenticated with an X-Apikey header an additional property named followin
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id/videos</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -1002,9 +911,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -1032,7 +939,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id/photos</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 
 <p><aside class="notice">
@@ -1113,9 +1020,7 @@ When authenticated with an X-Apikey header and the apikey matches the requested 
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -1158,7 +1063,7 @@ The requested user&rsquo;s public feed is returned by default, their private fee
 </aside></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -1636,9 +1541,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -1681,7 +1584,7 @@ This endpoint currently returns a select subset of sponsored and featured videos
 </aside></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -1745,9 +1648,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -1786,7 +1687,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/sponsored</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -1850,9 +1751,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -1891,7 +1790,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/featured</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -1955,9 +1854,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -1996,7 +1893,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/latest</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -2060,9 +1957,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -2101,7 +1996,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/vr</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -2155,9 +2050,7 @@ The &ldquo;download&rdquo; version will always be returned irregardless of wheth
     </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -2198,7 +2091,7 @@ A request for a video that is encoding, deleted, failed or currently hidden will
 </aside></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in the response indicating whether the currently authenticated user has stared or downvoted this video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -2324,118 +2217,6 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <p>Unstar the requested video.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">DELETE https://littlstar.com/api/v1/videos/:id/star</code></p>
-
-<p><aside class="warning">
-An X-Apikey header containing a valid API key is required to access this endpoint.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td></td>
-<td>video&rsquo;s integer ID or slug</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>401</td>
-<td>A valid apikey is required to access this endpoint</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
-</tr>
-</tbody></table>
-<h2 id='downvote-video'>Downvote Video</h2>
-<!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/downvote
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downvote Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Downvote the requested video.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">POST https://littlstar.com/api/v1/videos/1/downvote</code></p>
-
-<p><aside class="warning">
-An X-Apikey header containing a valid API key is required to access this endpoint.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td></td>
-<td>video&rsquo;s integer ID or slug</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>401</td>
-<td>A valid apikey is required to access this endpoint</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
-</tr>
-</tbody></table>
-<h2 id='undownvote-video'>Undownvote Video</h2>
-<!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/downvote
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undownvote Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Undownvote the requested video.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">DELETE https://littlstar.com/api/v1/videos/:id/downvote</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
@@ -2658,9 +2439,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -2688,7 +2467,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -2745,9 +2524,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -2775,7 +2552,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/featured</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -2832,9 +2609,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -2862,7 +2637,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/latest</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -2919,9 +2694,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -2949,7 +2722,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/vr</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -2996,9 +2769,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
     </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -3028,7 +2799,7 @@ A request for a photo that is processing, deleted, or currently hidden will resu
 </aside></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in the response indicating whether the currently authenticated user has stared or downvoted this photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -3146,118 +2917,6 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <p>Unstar the requested photo.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">DELETE https://littlstar.com/api/v1/photos/:id/star</code></p>
-
-<p><aside class="warning">
-An X-Apikey header containing a valid API key is required to access this endpoint.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td></td>
-<td>photo&rsquo;s integer ID or slug</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>401</td>
-<td>A valid apikey is required to access this endpoint</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
-</tr>
-</tbody></table>
-<h2 id='downvote-photo'>Downvote Photo</h2>
-<!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/downvote
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downvote Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Downvote the requested photo.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">POST https://littlstar.com/api/v1/photos/1/downvote</code></p>
-
-<p><aside class="warning">
-An X-Apikey header containing a valid API key is required to access this endpoint.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td></td>
-<td>photo&rsquo;s integer ID or slug</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>401</td>
-<td>A valid apikey is required to access this endpoint</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
-</tr>
-</tbody></table>
-<h2 id='undownvote-photo'>Undownvote Photo</h2>
-<!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/downvote
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undownvote Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Undownvote the requested photo.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">DELETE https://littlstar.com/api/v1/photos/:id/downvote</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
@@ -3604,9 +3263,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -3645,7 +3302,7 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/categories/:id/videos</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -3723,9 +3380,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -3753,7 +3408,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/categories/:id/photos</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -3991,9 +3646,7 @@ A request for a channel that is currently hidden will result in a 403 error resp
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -4036,7 +3689,7 @@ A request for a channel that is currently hidden will result in a 403 error resp
 </aside></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -4118,9 +3771,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -4152,7 +3803,7 @@ A request for a channel that is currently hidden will result in a 403 error resp
 </aside></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -4348,9 +3999,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -4389,7 +4038,7 @@ When authenticated with an X-Apikey header two additional properties, <code clas
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/hashtags/:id/videos</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared or downvoted that video.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
 </aside></p>
 
 <p><aside class="notice">
@@ -4467,9 +4116,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
       </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"downvoted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
@@ -4497,7 +4144,7 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/hashtags/:id/photos</code></p>
 
 <p><aside class="notice">
-When authenticated with an X-Apikey header two additional properties, <code class="prettyprint">stared</code> and <code class="prettyprint">downvoted</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared or downvoted that photo.
+When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
