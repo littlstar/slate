@@ -43,6 +43,8 @@
         "id": 1,
         "slug": "jsmith",
         "username": "jsmith",
+        "featured": "true|false",
+        "verified": "true|false",
         "avatar_url": ""
       }
     },
