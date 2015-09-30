@@ -36,7 +36,16 @@
       "full_name": "John Smith",
       "followers_count": 0,
       "following_count": 0,
-      "following": "true|false"
+      "following": "true|false",
+      "interests": [
+        {},
+        {
+          "id": 2,
+          "name": "Sports",
+          "image_url": ""
+        },
+        {}
+      ]
     },
     {}
   ]
