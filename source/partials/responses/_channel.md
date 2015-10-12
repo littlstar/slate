@@ -12,6 +12,7 @@
     "type": "channel",
     "slug": "a1b2c3d4",
     "name": "360 Shades of Grey",
+    "description": "",
     "sponsored": "true|false",
     "featured": "true|false",
     "visibility": "visible|hidden",
