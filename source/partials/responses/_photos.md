@@ -36,6 +36,7 @@
         {},
         {
           "id": 2,
+          "slug": "sports",
           "name": "Sports",
           "image_url": ""
         },
