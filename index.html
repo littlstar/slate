@@ -83,7 +83,7 @@
 <p>To authenticate your request, include your API key in an X-Apikey header:</p>
 </blockquote>
 
-<pre><code class="highlight shell">curl -H <span class="s2">"X-Apikey: a1b2c3d4e5f6g7h8i9j"</span> <span class="s2">"endpoint"</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"X-Apikey: a1b2c3d4e5f6g7h8i9j"</span> <span class="s2">"endpoint"</span>
 </code></pre>
 
 <blockquote>
@@ -95,14 +95,19 @@
 <p>Littlstar uses an API key based system to grant authenticated access to users of our API. Upon successful <a href="https://littlstar.com/register">registration</a> a random API key is generated for every user and can be retrieved from the bottom of your <a href="https://littlstar.com/settings">settings</a> page after <a href="https://littlstar.com/login">logging in</a>.</p>
 
 <!-- render search section -->
-<h1 id='search'>Search</h1><h2 id='search-all'>Search All</h2>
+
+<h1 id='search'>Search</h1>
+
+<h2 id='search-all'>Search All</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search?q<span class="o">=</span>dance
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search?q<span class="o">=</span>dance
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -128,7 +133,9 @@
 </span></code></pre>
 
 <p>Returns a paginated array of videos, photos, users, and channels matching the search query.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/search?q=</code></p>
 
 <p><aside class="notice">
@@ -146,7 +153,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property named following will be included in each of the user objects in the array indicating whether the currently authenticated user is following that user.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -170,7 +179,9 @@ When authenticated with an X-Apikey header an additional property named followin
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -182,14 +193,17 @@ When authenticated with an X-Apikey header an additional property named followin
 <td>You must provide a search term!</td>
 </tr>
 </tbody></table>
+
 <h2 id='video-search'>Video Search</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search/videos?q<span class="o">=</span>dance
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search/videos?q<span class="o">=</span>dance
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -284,7 +298,9 @@ When authenticated with an X-Apikey header an additional property named followin
 </span></code></pre>
 
 <p>Returns a paginated array of all videos matching the search query.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/search/videos?q=</code></p>
 
 <p><aside class="notice">
@@ -294,7 +310,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -318,7 +336,9 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -330,14 +350,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>You must provide a search term!</td>
 </tr>
 </tbody></table>
+
 <h2 id='photo-search'>Photo Search</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search/photos?q<span class="o">=</span>dance
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search/photos?q<span class="o">=</span>dance
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -418,13 +441,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </span></code></pre>
 
 <p>Returns a paginated array of all photos matching the search query.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/search/photos?q=</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -448,7 +475,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -460,14 +489,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>You must provide a search term!</td>
 </tr>
 </tbody></table>
+
 <h2 id='user-search'>User Search</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search/users?q<span class="o">=</span>john
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search/users?q<span class="o">=</span>john
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -522,13 +554,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 </span></code></pre>
 
 <p>Returns a paginated array of all users matching the search query.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/search/users?q=</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property named following will be included in each of the user objects in the array indicating whether the currently authenticated user is following that user.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -552,7 +588,9 @@ When authenticated with an X-Apikey header an additional property named followin
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -564,14 +602,17 @@ When authenticated with an X-Apikey header an additional property named followin
 <td>You must provide a search term!</td>
 </tr>
 </tbody></table>
+
 <h2 id='channel-search'>Channel Search</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search/channels?q<span class="o">=</span>dance
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/search/channels?q<span class="o">=</span>dance
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -624,9 +665,13 @@ When authenticated with an X-Apikey header an additional property named followin
 </span></code></pre>
 
 <p>Returns a paginated array of all channels matching the search query.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/search/channels?q=</code></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -650,7 +695,9 @@ When authenticated with an X-Apikey header an additional property named followin
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -664,14 +711,19 @@ When authenticated with an X-Apikey header an additional property named followin
 </tbody></table>
 
 <!-- render users section -->
-<h1 id='users'>Users</h1><h2 id='single-user'>Single User</h2>
+
+<h1 id='users'>Users</h1>
+
+<h2 id='single-user'>Single User</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -714,7 +766,9 @@ When authenticated with an X-Apikey header an additional property named followin
 </span></code></pre>
 
 <p>Returns the publicly available details for the requested user.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id</code></p>
 
 <p><aside class="notice">
@@ -724,7 +778,9 @@ If the X-Apikey authentication header is provided and the apikey matches the req
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property named following will be included in the response indicating whether the currently authenticated user is following the requested user.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -736,14 +792,17 @@ When authenticated with an X-Apikey header an additional property named followin
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='user-videos'>User Videos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/videos
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/videos
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -838,7 +897,9 @@ When authenticated with an X-Apikey header an additional property named followin
 </span></code></pre>
 
 <p>Returns a paginated array of all videos created by the requested user.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id/videos</code></p>
 
 <p><aside class="notice">
@@ -852,7 +913,9 @@ When authenticated with an X-Apikey header and the apikey matches the requested 
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -871,7 +934,9 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -883,14 +948,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='user-photos'>User Photos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/photos
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/photos
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -971,7 +1039,9 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </span></code></pre>
 
 <p>Returns a paginated array of all photos created by the requested user.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id/photos</code></p>
 
 <p><aside class="notice">
@@ -981,7 +1051,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 When authenticated with an X-Apikey header and the apikey matches the requested user’s apikey any photos marked as hidden by that user will be included in the response.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1000,7 +1072,9 @@ When authenticated with an X-Apikey header and the apikey matches the requested 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -1012,14 +1086,17 @@ When authenticated with an X-Apikey header and the apikey matches the requested 
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='user-channels'>User Channels</h2>
+
 <!-- example request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/channels
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/channels
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1072,13 +1149,17 @@ When authenticated with an X-Apikey header and the apikey matches the requested 
 </span></code></pre>
 
 <p>Returns a paginated array of all channels created by the requested user.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id/channels</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header and the apikey matches the requested user’s apikey any channels marked as hidden by that user will be included in the response.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1097,7 +1178,9 @@ When authenticated with an X-Apikey header and the apikey matches the requested 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -1109,14 +1192,17 @@ When authenticated with an X-Apikey header and the apikey matches the requested 
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='followers'>Followers</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/followers
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/followers
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1171,13 +1257,17 @@ When authenticated with an X-Apikey header and the apikey matches the requested 
 </span></code></pre>
 
 <p>Returns a paginated array of all users that currently follow the requested user.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id/followers</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property, <code class="prettyprint">following</code>, will be included in each of the user objects in the array indicating whether the currently authenticated user is following that user.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1196,7 +1286,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -1208,14 +1300,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='following'>Following</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/following
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/users/1/following
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1270,9 +1365,13 @@ When authenticated with an X-Apikey header an additional property, <code class="
 </span></code></pre>
 
 <p>Returns a paginated array of all users currently followed by the requested user.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/users/:id/following</code></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1291,7 +1390,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -1303,14 +1404,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='follow'>Follow</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/users/1/follow
+
+<pre class="highlight shell"><code>curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/users/1/follow
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1323,13 +1427,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 </span></code></pre>
 
 <p>Start following the requested user.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">POST https://littlstar.com/api/v1/users/:id/follow</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -1345,14 +1453,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find User with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='unfollow'>Unfollow</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/users/1/follow
+
+<pre class="highlight shell"><code>curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/users/1/follow
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1365,13 +1476,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Stop following the requested user.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">DELETE https://littlstar.com/api/v1/users/:id/follow</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -1389,14 +1504,19 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </tbody></table>
 
 <!-- render videos section -->
-<h1 id='videos'>Videos</h1><h2 id='all-videos'>All Videos</h2>
+
+<h1 id='videos'>Videos</h1>
+
+<h2 id='all-videos'>All Videos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1491,7 +1611,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Returns a paginated array of all videos.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos</code></p>
 
 <p><aside class="warning">
@@ -1505,7 +1627,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1524,14 +1648,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='sponsored-videos'>Sponsored Videos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/sponsored
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/sponsored
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1626,7 +1753,9 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </span></code></pre>
 
 <p>Returns a paginated array of all sponsored videos.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/sponsored</code></p>
 
 <p><aside class="notice">
@@ -1636,7 +1765,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1655,14 +1786,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='featured-videos'>Featured Videos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/featured
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/featured
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1757,7 +1891,9 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </span></code></pre>
 
 <p>This endpoint returns a paginated array of all featured videos.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/featured</code></p>
 
 <p><aside class="notice">
@@ -1767,7 +1903,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1786,14 +1924,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='latest-videos'>Latest Videos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/latest
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/latest
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1888,7 +2029,9 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </span></code></pre>
 
 <p>Returns a paginated array of all latest videos.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/latest</code></p>
 
 <p><aside class="notice">
@@ -1898,7 +2041,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1917,14 +2062,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='vr-videos'>VR Videos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/vr
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/vr
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2019,7 +2167,9 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </span></code></pre>
 
 <p>This endpoint returns a paginated array of all videos that have been identified as optimized for display in Oculus Rift, GearVR, and other Head Mounted Displays.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/vr</code></p>
 
 <p><aside class="notice">
@@ -2029,7 +2179,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will always be returned irregardless of whether the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2048,14 +2200,17 @@ The &ldquo;download&rdquo; version will always be returned irregardless of wheth
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='single-video'>Single Video</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/1
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/videos/1
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2138,7 +2293,9 @@ The &ldquo;download&rdquo; version will always be returned irregardless of wheth
 </span></code></pre>
 
 <p>Returns the details for the requested video.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/:id</code></p>
 
 <p><aside class="notice">
@@ -2152,7 +2309,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2180,14 +2339,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>Video is currently hidden</td>
 </tr>
 </tbody></table>
+
 <h2 id='star-video'>Star Video</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/star
+
+<pre class="highlight shell"><code>curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/star
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2200,13 +2362,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </span></code></pre>
 
 <p>Star the requested video.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">POST https://littlstar.com/api/v1/videos/:id/star</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2222,14 +2388,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='unstar-video'>Unstar Video</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/star
+
+<pre class="highlight shell"><code>curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/videos/1/star
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2242,13 +2411,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Unstar the requested video.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">DELETE https://littlstar.com/api/v1/videos/:id/star</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2264,14 +2437,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='flag-video'>Flag Video</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">flag</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">reason</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/videos/1/flag
+
+<pre class="highlight shell"><code>curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">flag</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">reason</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/videos/1/flag
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2284,13 +2460,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Flag the requested video.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">POST https://littlstar.com/api/v1/videos/:id/flag</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2304,7 +2484,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>inappropriate or copyright</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2336,14 +2518,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='unflag-video'>Unflag Video</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">flag</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">reason</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/videos/1/flag
+
+<pre class="highlight shell"><code>curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">flag</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">reason</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/videos/1/flag
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2356,13 +2541,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Unflag the requested video.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">DELETE https://littlstar.com/api/v1/videos/:id/flag</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2376,7 +2565,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>inappropriate or copyright</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2408,14 +2599,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='video-comments'>Video Comments</h2>
+
 <!-- example request -->
-<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/videos/1/comments
+
+<pre class="highlight shell"><code>curl -i https://littlstar.com/api/v1/videos/1/comments
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2453,9 +2647,13 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Returns a paginated array of all comments on the requested video.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/videos/:id/comments</code></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2474,7 +2672,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2486,14 +2686,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Video with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='video-comment'>Video Comment</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">comment</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">body</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/videos/1/comment
+
+<pre class="highlight shell"><code>curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">comment</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">body</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/videos/1/comment
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2506,13 +2709,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Comment on the requested video.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">POST https://littlstar.com/api/v1/videos/:id/comment</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2526,7 +2733,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>comment body</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2552,14 +2761,19 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </tbody></table>
 
 <!-- render photos section -->
-<h1 id='photos'>Photos</h1><h2 id='all-photos'>All Photos</h2>
+
+<h1 id='photos'>Photos</h1>
+
+<h2 id='all-photos'>All Photos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2640,13 +2854,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Returns a paginated array of all photos.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2665,14 +2883,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='featured-photos'>Featured Photos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/featured
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/featured
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2753,13 +2974,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 </span></code></pre>
 
 <p>This endpoint returns a paginated array of all featured photos.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/featured</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2778,14 +3003,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='latest-photos'>Latest Photos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/latest
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/latest
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2866,13 +3094,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 </span></code></pre>
 
 <p>Returns a paginated array of all latest photos.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/latest</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2891,14 +3123,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='vr-photos'>VR Photos</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/vr
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/vr
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2979,13 +3214,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 </span></code></pre>
 
 <p>This endpoint returns a paginated array of all photos that have been identified as optimized for display in Oculus Rift, GearVR, and other Head Mounted Displays.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/vr</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3004,14 +3243,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='single-photo'>Single Photo</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/1
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/photos/1
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3080,7 +3322,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 </span></code></pre>
 
 <p>Returns the details for the requested photo.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/:id</code></p>
 
 <p><aside class="notice">
@@ -3090,7 +3334,9 @@ A request for a photo that is processing, deleted, or currently hidden will resu
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3114,14 +3360,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>Photo is currently hidden</td>
 </tr>
 </tbody></table>
+
 <h2 id='star-photo'>Star Photo</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/star
+
+<pre class="highlight shell"><code>curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/star
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3134,13 +3383,17 @@ When authenticated with an X-Apikey header an additional property, <code class="
 </span></code></pre>
 
 <p>Star the requested photo.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">POST https://littlstar.com/api/v1/photos/:id/star</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3156,14 +3409,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='unstar-photo'>Unstar Photo</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/star
+
+<pre class="highlight shell"><code>curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> https://littlstar.com/api/v1/photos/1/star
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3176,13 +3432,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Unstar the requested photo.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">DELETE https://littlstar.com/api/v1/photos/:id/star</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3198,14 +3458,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='flag-photo'>Flag Photo</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">flag</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">reason</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/photos/1/flag
+
+<pre class="highlight shell"><code>curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">flag</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">reason</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/photos/1/flag
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3218,13 +3481,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Flag the requested photo.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">POST https://littlstar.com/api/v1/photos/:id/flag</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3238,7 +3505,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>inappropriate or copyright</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3270,14 +3539,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='unflag-photo'>Unflag Photo</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">flag</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">reason</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/photos/1/flag
+
+<pre class="highlight shell"><code>curl -i -XDELETE -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">flag</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">reason</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/photos/1/flag
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3290,13 +3562,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Unflag the requested photo.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">DELETE https://littlstar.com/api/v1/photos/:id/flag</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3310,7 +3586,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>inappropriate or copyright</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3342,14 +3620,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='photo-comments'>Photo Comments</h2>
+
 <!-- example request -->
-<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/photos/1/comments
+
+<pre class="highlight shell"><code>curl -i https://littlstar.com/api/v1/photos/1/comments
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3387,9 +3668,13 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Returns a paginated array of all comments on the requested photo.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/photos/:id/comments</code></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3408,7 +3693,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3420,14 +3707,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Photo with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='photo-comment'>Photo Comment</h2>
+
 <!-- example shell request -->
-<pre><code class="highlight shell">curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">comment</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">body</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/photos/1/comment
+
+<pre class="highlight shell"><code>curl -i -XPOST -H <span class="s1">'X-Apikey: [REQUIRED_APIKEY]'</span> -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s2">"{</span><span class="se">\"</span><span class="s2">comment</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">body</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"\"</span><span class="s2">}}"</span> https://littlstar.com/api/v1/photos/1/comment
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3440,13 +3730,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Comment on the requested photo.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">POST https://littlstar.com/api/v1/photos/:id/comment</code></p>
 
 <p><aside class="warning">
 An X-Apikey header containing a valid API key is required to access this endpoint.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3460,7 +3754,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>comment body</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3486,14 +3782,19 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </tbody></table>
 
 <!-- render categories section -->
-<h1 id='categories'>Categories</h1><h2 id='all-categories'>All Categories</h2>
+
+<h1 id='categories'>Categories</h1>
+
+<h2 id='all-categories'>All Categories</h2>
+
 <!-- example request -->
-<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/categories
+
+<pre class="highlight shell"><code>curl -i https://littlstar.com/api/v1/categories
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3528,9 +3829,13 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Returns a paginated array of all categories.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/categories</code></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3549,14 +3854,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h2 id='single-category'>Single Category</h2>
+
 <!-- example request -->
-<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/categories/1
+
+<pre class="highlight shell"><code>curl -i https://littlstar.com/api/v1/categories/1
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3579,9 +3887,13 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Returns the details for the requested category.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/categories/:id</code></p>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3593,14 +3905,17 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 <td>Couldn&rsquo;t find Category with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='category-videos'>Category Videos</h2>
+
 <!-- example request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/categories/1/videos
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/categories/1/videos
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3695,7 +4010,9 @@ An X-Apikey header containing a valid API key is required to access this endpoin
 </span></code></pre>
 
 <p>Returns a paginated array of all videos in the requested category.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/categories/:id/videos</code></p>
 
 <p><aside class="notice">
@@ -3705,7 +4022,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <p><aside class="notice">
 The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3724,7 +4043,9 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3736,14 +4057,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 <td>Couldn&rsquo;t find Category with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
+
 <h2 id='category-photos'>Category Photos</h2>
+
 <!-- example request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/categories/1/photos
+
+<pre class="highlight shell"><code>curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/categories/1/photos
 </code></pre>
 
 <!-- example response -->
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3824,13 +4148,17 @@ The &ldquo;download&rdquo; version will only be returned if the video owner has 
 </span></code></pre>
 
 <p>Returns a paginated array of all photos in the requested category.</p>
+
 <h3 id='http-request'>HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://littlstar.com/api/v1/categories/:id/photos</code></p>
 
 <p><aside class="notice">
 When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
 </aside></p>
+
 <h3 id='query-parameters'>Query Parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3849,7 +4177,9 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <td>number of results per page</td>
 </tr>
 </tbody></table>
+
 <h3 id='error-responses'>Error Responses</h3>
+
 <table><thead>
 <tr>
 <th>Code</th>
@@ -3859,812 +4189,6 @@ When authenticated with an X-Apikey header an additional property, <code class="
 <tr>
 <td>404</td>
 <td>Couldn&rsquo;t find Category with &lsquo;id&rsquo;=</td>
-</tr>
-</tbody></table>
-
-<!-- render channels section -->
-<h1 id='channels'>Channels</h1><h2 id='all-channels'>All Channels</h2>
-<!-- example request -->
-<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/channels
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"channel"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Shades of Grey"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"videos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"photos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"poster_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"banners"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a paginated array of all channels.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/channels</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td></td>
-<td>specific page of results</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>30</td>
-<td>number of results per page</td>
-</tr>
-</tbody></table>
-<h2 id='single-channel'>Single Channel</h2>
-<!-- example request -->
-<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/channels/1
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"channel"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Shades of Grey"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"videos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"photos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"poster_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"banners"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns the details for the requested channel.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/channels/:id</code></p>
-
-<p><aside class="notice">
-A request for a channel that is currently hidden will result in a 403 error response with an appropriate error message. However, if the current request has been authenticated by sending an X-Apikey header and the user requesting the channel is the creator of the channel, that channel&rsquo;s details will be returned.
-</aside></p>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Channel with &lsquo;id&rsquo;=</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Channel is currently hidden</td>
-</tr>
-</tbody></table>
-<h2 id='channel-videos'>Channel Videos</h2>
-<!-- example request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/channels/1/videos
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sports"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sports"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inappropriate"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"banners"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a paginated array of all videos in the requested channel.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/channels/:id/videos</code></p>
-
-<p><aside class="notice">
-A request for a channel that is currently hidden will result in a 403 error response with an appropriate error message. However, if the current request has been authenticated by sending an X-Apikey header and the user requesting the channel is the creator of the channel, that channel&rsquo;s details will be returned.
-</aside></p>
-
-<p><aside class="notice">
-When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
-</aside></p>
-
-<p><aside class="notice">
-The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td></td>
-<td>specific page of results</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>30</td>
-<td>number of results per page</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Channel with &lsquo;id&rsquo;=</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Channel is currently hidden</td>
-</tr>
-</tbody></table>
-<h2 id='channel-photos'>Channel Photos</h2>
-<!-- example request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/channels/1/photos
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sports"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sports"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inappropriate"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"original"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a paginated array of all photos in the requested channel.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/channels/:id/photos</code></p>
-
-<p><aside class="notice">
-A request for a channel that is currently hidden will result in a 403 error response with an appropriate error message. However, if the current request has been authenticated by sending an X-Apikey header and the user requesting the channel is the creator of the channel, that channel&rsquo;s details will be returned.
-</aside></p>
-
-<p><aside class="notice">
-When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td></td>
-<td>specific page of results</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>30</td>
-<td>number of results per page</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Channel with &lsquo;id&rsquo;=</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Channel is currently hidden</td>
-</tr>
-</tbody></table>
-
-<!-- render hashtags section -->
-<h1 id='hashtags'>Hashtags</h1><h2 id='all-hashtags'>All Hashtags</h2>
-<!-- example request -->
-<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/hashtags
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#360selfie"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hashtag"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"videos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"photos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a paginated array of all hashtags.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/hashtags</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td></td>
-<td>specific page of results</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>30</td>
-<td>number of results per page</td>
-</tr>
-</tbody></table>
-<h2 id='single-hashtag'>Single Hashtag</h2>
-<!-- example request -->
-<pre><code class="highlight shell">curl -i https://littlstar.com/api/v1/hashtags/360selfie
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#360selfie"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hashtag"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"videos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"photos_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns the details for the requested hashtag.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/hashtags/:id</code></p>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Hashtag with &lsquo;id&rsquo;=</td>
-</tr>
-</tbody></table>
-<h2 id='hashtag-videos'>Hashtag Videos</h2>
-<!-- example request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/hashtags/360selfie/videos
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sports"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sports"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inappropriate"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webm"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"vr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"posters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"banners"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a paginated array of all videos with the requested hashtag.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/hashtags/:id/videos</code></p>
-
-<p><aside class="notice">
-When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the video objects in the array indicating whether the currently authenticated user has stared that video.
-</aside></p>
-
-<p><aside class="notice">
-The &ldquo;download&rdquo; version will only be returned if the video owner has enabled downloads.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td></td>
-<td>specific page of results</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>30</td>
-<td>number of results per page</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Hashtag with &lsquo;id&rsquo;=</td>
-</tr>
-</tbody></table>
-<h2 id='hashtag-photos'>Hashtag Photos</h2>
-<!-- example request -->
-<pre><code class="highlight shell">curl -i -H <span class="s1">'X-Apikey: [OPTIONAL_APIKEY]'</span> https://littlstar.com/api/v1/hashtags/360selfie/photos
-</code></pre>
-
-<!-- example response -->
-
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360 Degrees of Separation"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible|hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vr_optimized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stared"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-04-13T04:20:00.778-04:20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"hashtag_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"array"</span><span class="p">,</span><span class="w"> </span><span class="s2">"of"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hashtags"</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sports"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sports"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inappropriate"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"original"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsmith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true|false"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a paginated array of all photos with the requested hashtag.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET https://littlstar.com/api/v1/hashtags/:id/photos</code></p>
-
-<p><aside class="notice">
-When authenticated with an X-Apikey header an additional property, <code class="prettyprint">stared</code>, will be included in each of the photo objects in the array indicating whether the currently authenticated user has stared that photo.
-</aside></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td></td>
-<td>specific page of results</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>30</td>
-<td>number of results per page</td>
-</tr>
-</tbody></table>
-<h3 id='error-responses'>Error Responses</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>404</td>
-<td>Couldn&rsquo;t find Hashtag with &lsquo;id&rsquo;=</td>
 </tr>
 </tbody></table>
 
